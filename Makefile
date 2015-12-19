@@ -1,10 +1,13 @@
 CC=gcc
 LDFLAGS=-lpthread
 BINARY=fast-dfs
-CFLAGS=-g -o $(BINARY)
+CFLAGS=-g -Wall -Werror
 
 all:
-	$(CC) dfs.c dfs.h $(CFLAGS) $(LDFLAGS)
+	$(CC) dfs.c dfs.h $(CFLAGS) -o $(BINARY) $(LDFLAGS)
+
+library:
+	$(CC) dfs.c dfs.h -c -DLIBRARY $(CFLAGS) $(LDFLAGS)
 
 clean:
-	rm -f *.gch $(BINARY)
+	rm -f *.gch $(BINARY) *.o
