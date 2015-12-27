@@ -1,23 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <unistd.h>
+
 /* STRUCTS */
-typedef struct{
+typedef struct vertex{
     char *label;
     int value;
     int goal;
-} vertex;
+} g_vertex;
 
-typedef struct{
-    vertex vertices[2];
+typedef struct edge{
+    g_vertex vertices[2];
     int cost;
-} edge;
+} g_edge;
 
-typedef struct{
-    edge *path_head;
-} path;
+typedef struct node{
+    g_edge *edge;
+    struct node *next;
+} g_path_node;
+
+typedef struct path_node{
+    g_path_node *head;
+    g_path_node *tail;
+}g_path;
+
 
 /* DEFAULTS */
-const vertex VERTEX_DEFAULT = { "", 0, 0};
-const edge EDGE_DEFAULT = { {NULL, NULL}, 1};
-const path PATH_DEFAULT = { NULL };
+const g_vertex VERTEX_DEFAULT = { "", 0, 0};
+const g_edge EDGE_DEFAULT = { {}, 1};
+const g_path PATH_DEFAULT = { NULL, NULL };
 
 /* PROTOTYPES */
+/* User Functions */
 
+/* Utility Functions */
+void add_to_path(g_path *path, g_edge *edge);
+int is_goal(g_vertex vertex, int goal_val);
