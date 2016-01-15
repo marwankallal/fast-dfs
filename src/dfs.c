@@ -42,15 +42,25 @@ int main(int argc, char **argv){
         \ /
          B
     */
-    g_vertex start = VERTEX_DEFAULT;
-    g_vertex goal = {"", 0, 1};
-    g_vertex A = VERTEX_DEFAULT;
-    g_vertex B = VERTEX_DEFAULT;
+    g_vertex start = {NULL, "", 0, 0};
+    g_vertex goal = {NULL, 0, 1};
+    g_vertex A = {NULL, 0, 0};
+    g_vertex B = {NULL, 0, 0};
 
     g_edge SA = {{start, A}, 0};
     g_edge AG = {{A, goal}, 0};
     g_edge SB = {{start, B}, 1};
     g_edge BG = {{B, goal}, 1};
+
+    g_edge start_edges[2] = {SA, SB};
+    g_edge goal_edges[2] = {AG, BG};
+    g_edge A_edges[2] = {SA, AG};
+    g_edge B_edges[2] = {SB, BG};
+
+    start.edges = start_edges;
+    goal.edges = goal_edges;
+    A.edges = A_edges;
+    B.edges = B_edges;
     
     g_edge edges[4] = {SA, AG, SB, BG};
     g_vertex vertices[4] = {start, goal, A, B};
@@ -58,6 +68,9 @@ int main(int argc, char **argv){
     g_graph graph = {vertices, edges};
 
     g_path *search_path = search(graph, start, 1, 0);
+
+    // suppress unused variable error for now
+    (void *) search_path;
  
     return 0;
 }

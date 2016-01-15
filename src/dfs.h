@@ -4,16 +4,18 @@
 #include <unistd.h>
 
 /* STRUCTS */
+typedef struct edge g_edge;
 typedef struct vertex{
+    g_edge *edges;
     char *label;
     int value;
     unsigned short goal;
 } g_vertex;
 
-typedef struct edge{
+struct edge{
     g_vertex vertices[2];
     unsigned int cost;
-} g_edge;
+};
 
 typedef struct node{
     g_edge *edge;
@@ -31,10 +33,6 @@ typedef struct graph{
     g_edge *E;
 }g_graph;
 
-/* DEFAULTS */
-const g_vertex VERTEX_DEFAULT = { "", 0, 0};
-const g_edge EDGE_DEFAULT = { {}, 1};
-const g_path PATH_DEFAULT = { NULL, NULL };
 
 /* PROTOTYPES */
 /* User Functions */
