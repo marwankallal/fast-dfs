@@ -7,7 +7,15 @@
 /* pass use_goal_f as 1 if you set the goal flag in a vertex, otherwise set to 0
    Subsequently specifying a nonzero value for goal_value will override this flag */
 g_path *search(g_graph graph, g_vertex start, unsigned short use_goal_f, int goal_value){
-   return NULL; 
+    g_path *solution_path = (g_path *)malloc(sizeof(solution_path));
+
+    //list connected edges
+
+    //check connected vertices for goal
+
+    //if more than one, spin off new thread to follow other path
+
+    return solution_path; 
 }
 
 
@@ -69,9 +77,9 @@ int main(int argc, char **argv){
 
     g_path *search_path = search(graph, start, 1, 0);
 
-    // suppress unused variable error for now
-    (void *) search_path;
- 
+    
+    free(search_path);
+
     return 0;
 }
 #endif

@@ -23,7 +23,7 @@ typedef struct node{
 } g_path_node;
 
 typedef struct path_node{
-    unsigned int cost;
+    unsigned int *cost;
     g_path_node *head;
     g_path_node *tail;
 }g_path;
@@ -35,7 +35,6 @@ typedef struct graph{
 
 
 /* PROTOTYPES */
-/* User Functions */
 g_path *search(g_graph graph, g_vertex start, unsigned short use_goal_f, int goal_value);
 
 /* Utility Functions */
