@@ -25,6 +25,10 @@ typedef struct path_node{
     g_path_node *tail;
 }g_path;
 
+typedef struct graph{
+    g_vertex *V;
+    g_edge *E;
+}g_graph;
 
 /* DEFAULTS */
 const g_vertex VERTEX_DEFAULT = { "", 0, 0};
@@ -33,8 +37,7 @@ const g_path PATH_DEFAULT = { NULL, NULL };
 
 /* PROTOTYPES */
 /* User Functions */
-g_path *search(int goal_value);
-g_path *search();
+g_path *search(g_graph *graph, g_vertex *start, int goal_value);
 
 /* Utility Functions */
 void add_to_path(g_path *path, g_edge *edge);

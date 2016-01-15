@@ -9,6 +9,13 @@ int main(int argc, char **argv){
 }
 #endif
 
+/* PUBLIC INTERFACE */
+// pass goal_value as NULL if you have a vertex set as goal in your graph
+g_path search(g_graph *graph, g_vertex *start, int goal_value){
+
+}
+
+
 /* UTILITY FUNCTIONS */
 
 void add_to_path(g_path *path, g_edge *edge){
