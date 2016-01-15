@@ -9,8 +9,6 @@ int main(int argc, char **argv){
 }
 #endif
 
-
-
 /* UTILITY FUNCTIONS */
 
 void add_to_path(g_path *path, g_edge *edge){

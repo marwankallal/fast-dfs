@@ -33,6 +33,8 @@ const g_path PATH_DEFAULT = { NULL, NULL };
 
 /* PROTOTYPES */
 /* User Functions */
+g_path *search(int goal_value);
+g_path *search();
 
 /* Utility Functions */
 void add_to_path(g_path *path, g_edge *edge);

@@ -27,6 +27,15 @@ When the search completes, it will return a `path`. This is a linked list of edg
 that were traversed in order to reach the goal vertex. If no goal vertex was found,
 the linked list will be empty (`NULL`).
 
+In order to pass a graph to the search functions, use the `graph` struct, consisting
+of the set E and V of your graph. You must also specify the start and goal values
+for which you want the path between.
+
+How To Run
+----------
+`fast-dfs` should be used as a library, where you pass in the graph structure. The 
+`main` function exists only for testing. 
+
 TODO (Cool Features)
 --------------------
 - Automatic algorithm suggestion based on graph structure (Experimental).
