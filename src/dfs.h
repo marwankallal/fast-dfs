@@ -7,12 +7,12 @@
 typedef struct vertex{
     char *label;
     int value;
-    int goal;
+    unsigned short goal;
 } g_vertex;
 
 typedef struct edge{
     g_vertex vertices[2];
-    int cost;
+    unsigned int cost;
 } g_edge;
 
 typedef struct node{
@@ -37,7 +37,7 @@ const g_path PATH_DEFAULT = { NULL, NULL };
 
 /* PROTOTYPES */
 /* User Functions */
-g_path *search(g_graph *graph, g_vertex *start, int goal_value);
+g_path *search(g_graph graph, g_vertex start, unsigned short use_goal_f, int goal_value);
 
 /* Utility Functions */
 void add_to_path(g_path *path, g_edge *edge);
