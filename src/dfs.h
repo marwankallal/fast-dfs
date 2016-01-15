@@ -21,6 +21,7 @@ typedef struct node{
 } g_path_node;
 
 typedef struct path_node{
+    unsigned int cost;
     g_path_node *head;
     g_path_node *tail;
 }g_path;

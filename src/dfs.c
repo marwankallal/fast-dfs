@@ -2,10 +2,8 @@
 
 #define THREAD_MAX 4
 
-/* main should be used only if specified by make, otherwise it should compile as a library */
-
-
 /* PUBLIC INTERFACE */
+
 /* pass use_goal_f as 1 if you set the goal flag in a vertex, otherwise set to 0
    Subsequently specifying a nonzero value for goal_value will override this flag */
 g_path *search(g_graph graph, g_vertex start, unsigned short use_goal_f, int goal_value){
@@ -28,6 +26,10 @@ int is_goal(g_vertex vertex, int goal_val){
     return 0;
 }
 
+
+/* TESTING FUNTIONS */
+
+/* main should be used only if specified by make, otherwise it should compile as a library */
 #ifndef LIBRARY
 /* main to be used exclusively for tests */
 int main(int argc, char **argv){
@@ -47,15 +49,16 @@ int main(int argc, char **argv){
 
     g_edge SA = {{start, A}, 0};
     g_edge AG = {{A, goal}, 0};
-    g_edge SB = {{start, B}, 0};
-    g_edge BG = {{B, goal}, 0};
+    g_edge SB = {{start, B}, 1};
+    g_edge BG = {{B, goal}, 1};
     
     g_edge edges[4] = {SA, AG, SB, BG};
     g_vertex vertices[4] = {start, goal, A, B};
 
     g_graph graph = {vertices, edges};
 
-    search(graph, start, 1, 0); 
+    g_path *search_path = search(graph, start, 1, 0);
+ 
     return 0;
 }
 #endif
