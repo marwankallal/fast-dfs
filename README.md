@@ -34,7 +34,22 @@ for which you want the path between.
 How To Run
 ----------
 `fast-dfs` should be used as a library, where you pass in the graph structure. The 
-`main` function exists only for testing. 
+`main` function exists only for testing.
+
+To start a search, you will want to call:
+`search(g_graph graph, g_vertex start, unsigned short use_goal_f, int goal_value)`
+
+`search` returns a `g_path * `
+The function parameters are defined below:
+
+`graph`: Your input graph, made up of `g_vertex * V`and `g_edge * E`,
+         arrays of vertices and edges that make up your graph
+
+`start`: Vertex to start the search from.
+
+`use_goal_f`: Set to `0` to specify goal value in the `goal_value` parameter, `1` otherwise.
+
+`goal_value`: If non-zero, overrides `use_goal_f`. Specifies value of goal vertex.
 
 TODO (Cool Features)
 --------------------
